@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Orick/DesarrolloWeb/issues"
   },
-  "homepage": "https://github.com/Orick/DesarrolloWeb#readme"
+  "homepage": "https://github.com/Orick/DesarrolloWeb#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
