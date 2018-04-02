@@ -1,24 +1,31 @@
 {
-  "name": "desarrolloweb",
-  "version": "1.0.0",
+  "name": "superproyecto-backend",
+  "version": "0.0.0",
   "description": "Nadie lee esto",
-  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Orick/DesarrolloWeb.git"
   },
-  "author": "",
+  "author": "Dios",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Orick/DesarrolloWeb/issues"
   },
   "homepage": "https://github.com/Orick/DesarrolloWeb#readme",
   "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.17.2",
+    "pug": "2.0.0-beta11",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
-    "express": "^4.16.3"
+    "firebase": "^4.12.1",
+    "npm": "^5.8.0"
   }
 }
