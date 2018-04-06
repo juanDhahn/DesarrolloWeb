@@ -68,11 +68,12 @@ onListening = () => {
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);
+console.log("Using Port 3000");
 server.on('error', onError);
 server.on('listening', onListening);
 
 models.sequelize.sync({
-    force: false
+    force: true
 }).then(() => {
 
 });
