@@ -13,36 +13,36 @@ router.post('/', (req, res, next) => {
                });
 });
 
-/* GET users listing.
-    Example: /users/max@zl.cl
- */
-router.get('/:email', (req, res, next) => {
-    res.json({
-                   status: 1,
-                   statusCode: 'user/created',
-               });
-    const email = req.params.email;
-
-});
-
-/* GET users listing.
-    Example: /users?email=max@zl.cl
- */
-router.get('/', (req, res, next) => {
-    const email = req.query.email;
-
-    firebase.ref('/users').push({
-        username: 'test2',
-        email: 'test',
-    });
-
-    res.json({
-                   status: 1,
-                   statusCode: 'user/created',
-                   data: 'LoL > Dota'
-               });
-
-});
+// /* GET users listing.
+//     Example: /users/max@zl.cl
+//  */
+// router.get('/:email', (req, res, next) => {
+//     res.json({
+//                    status: 1,
+//                    statusCode: 'user/created',
+//                });
+//     const email = req.params.email;
+//
+// });
+//
+// /* GET users listing.
+//     Example: /users?email=max@zl.cl
+//  */
+// router.get('/', (req, res, next) => {
+//     const email = req.query.email;
+//
+//     firebase.ref('/users').push({
+//         username: 'test2',
+//         email: 'test',
+//     });
+//
+//     res.json({
+//                    status: 1,
+//                    statusCode: 'user/created',
+//                    data: 'LoL > Dota'
+//                });
+//
+// });
 
 
 module.exports = router;

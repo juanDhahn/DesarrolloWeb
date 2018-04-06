@@ -1,5 +1,5 @@
 {
-  "name": "superproyecto-backend",
+  "name": "DesarrolloWeb",
   "version": "0.0.0",
   "description": "Nadie lee esto",
   "scripts": {
@@ -16,15 +16,17 @@
   },
   "homepage": "https://github.com/Orick/DesarrolloWeb#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "firebase": "^4.12.1",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "nodemon": "^1.17.2",
     "pug": "2.0.0-beta11",
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
-    "firebase": "^4.12.1"
+    "sequelize": "^4.37.4",
+    "sqlite3": "^4.0.0"
   }
 }

@@ -1,0 +1,41 @@
+{
+  "development": {
+    "database": "DesarrolloWeb",
+    "dialect": "sqlite",
+    "logging": false,
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "operatorsAliases": false,
+    "storage": "db.sql"
+  },
+  "test": {
+    "database": "DesarrolloWeb",
+    "dialect": "sqlite",
+    "logging": false,
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "operatorsAliases": false,
+    "storage": "db.sql"
+  },
+  "production": {
+    "database": "DesarrolloWeb",
+    "dialect": "sqlite",
+    "logging": false,
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "operatorsAliases": false,
+    "storage": "db.sql"
+  }
+}

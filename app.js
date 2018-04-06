@@ -7,6 +7,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const statsRouter = require('./routes/stats');
 const summonerRouter = require('./routes/summoner');
+const userRouter = require('./routes/user');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/stats', statsRouter);
 app.use('/summoner', summonerRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -41,3 +43,12 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
+//{
+//     "profileIconId": 3379,
+//     "name": "Orick",
+//     "summonerLevel": 68,
+//     "accountId": 118550,
+//     "id": 113649,
+//     "revisionDate": 1522848678000
+// }
