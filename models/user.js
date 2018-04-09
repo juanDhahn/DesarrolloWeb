@@ -3,10 +3,6 @@ const models = require('../models');
 
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('user', {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -16,12 +12,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate: (models) => {
-                user.belongsTo(models.role);
-            }
-        },
-        //paranoid: true,
+    // }, {
+    //     // classMethods: {
+    //     //     associate: (models) => {
+    //     //         user.belongsTo(models.role);
+    //     //     }
+    //     // },
+    //     //paranoid: true,
+    // }
     });
 };

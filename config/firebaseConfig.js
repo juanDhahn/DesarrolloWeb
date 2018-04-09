@@ -1,14 +1,20 @@
-const firebase = require('firebase');
+const admin = require('firebase-admin');
+const serviceAccount = require(__dirname+'/adminFirebase.json');
 
-const configFirebase = {
-  apiKey: "AIzaSyAyFVQmjDbrkFFYYWgcm9XttUA3dLZKmM8",
-  authDomain: "desarrolloweb-40fd8.firebaseapp.com",
-  databaseURL: "https://desarrolloweb-40fd8.firebaseio.com",
-  projectId: "desarrolloweb-40fd8",
-  storageBucket: "desarrolloweb-40fd8.appspot.com",
-  messagingSenderId: "407977792929"
-};
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://desarrolloweb-40fd8.firebaseio.com"
+});
 
-const appFirebase = firebase.initializeApp(configFirebase);
+module.exports = admin;
+// const configFirebase = {
+//   apiKey: "AIzaSyAyFVQmjDbrkFFYYWgcm9XttUA3dLZKmM8",
+//   authDomain: "desarrolloweb-40fd8.firebaseapp.com",
+//   databaseURL: "https://desarrolloweb-40fd8.firebaseio.com",
+//   projectId: "desarrolloweb-40fd8",
+//   storageBucket: "desarrolloweb-40fd8.appspot.com",
+//   messagingSenderId: "407977792929"
+// };
 
-module.exports = appFirebase.database();
+// const appFirebase = firebase.initializeApp(configFirebase);
+// module.exports = appFirebase.database();
