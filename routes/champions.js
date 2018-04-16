@@ -6,26 +6,27 @@ const router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var apiKey = 'RGAPI-7821cd0a-2b1d-44b1-9a84-c679c48405dd';
+var apiKey = 'RGAPI-a1efdd25-af71-414e-9c90-245656751e62';
 
-/*app.get('/user/items', (req, res) => {
-    let url = 'https://la2.api.riotgames.com/lol/static-data/v3/items?locale=es_MX&itemListData=all&tags=all&api_key='+apiKey;
-    console.log(url);
+/*async function champions_name (lista){
+    console.log(lista);
+    const listKeys = Object.keys(lista);
+    let nombres = [];
+    listKeys.map(key =>{
+        nombres.push(lista[key]);
 
+    });
+            return nombres;
+}
 
-    axios.get(url)
-        .then(function (response) {
-            //console.log(response.data.keys[1]);
-            //res.json(response.data.keys[1]);
-            console.log(response.data);
-            res.json(response.data);
-        })
-        .catch(function (error) {
-           console.log(error);
-        });
-})*/
+async function logkeys(nombres){
+    nombres.map(nombre=>{
+                console.log(a.data[nombre].id)
+            });
+}
+*/
 
-app.get('/', (req, res) =>{
+router.get('/',(req, res) =>{
 
     let url = 'https://la2.api.riotgames.com/lol/static-data/v3/champions?locale=es_MX&champListData=all&tags=all&dataById=false&api_key='+apiKey;
     console.log(url);
@@ -40,9 +41,46 @@ app.get('/', (req, res) =>{
             //res.json(response.data.keys) Lista de campeones
             //let a = response.data.data['Jax'].id
             //a.data['Jax'].spells[0] primera spell de jax
+            let lista = response.data.keys
             let a = response.data;
-            console.log(a.data['Caitlyn'].spells)
-            res.json(a.data['Caitlyn'].spells)
+            //var nombres = champions_name(lista)
+            //logkeys(nombres)
+            /*lista.map(key => {
+                nombres.push[lista[key]];
+            });*/
+            var datos = []
+            for(var i in lista){
+                var id = a.data[lista[i]].id;
+                var name = a.data[lista[i]].name;
+                var armor = a.data[lista[i]].stats.armor;
+                datos.push(id);
+                datos.push(name);
+                datos.push(armor);
+                datos.push(a.data[lista[i]].stats.armorperlevel)
+                datos.push(a.data[lista[i]].stats.attackdamage)
+                datos.push(a.data[lista[i]].stats.attackdamageperlevel)
+                datos.push(a.data[lista[i]].stats.attackrange)
+                datos.push(a.data[lista[i]].stats.attackspeedoffset)
+                datos.push(a.data[lista[i]].stats.attackspeedperlevel)
+                datos.push(a.data[lista[i]].stats.crit)
+                datos.push(a.data[lista[i]].stats.critperlevel)
+                datos.push(a.data[lista[i]].stats.hp)
+                console.log(name);
+                console.log(id);
+                console.log(armor);
+                }
+            //var myJsonString = JSON.stringify(nombres);
+            /*
+            Variables a guardar:
+            a.data['nombre'].id
+            a.data['nombre'].name
+            a.data['nombre'].stats.armor
+            a.data['nombre'].stats.armorperlevel
+            */
+            res.json(datos);
+
+            //console.log(a.data['Caitlyn'].spells)
+            //res.json(a.data['Caitlyn'].spells)
         })
         .catch(function (error) {
            console.log(error);
@@ -52,38 +90,5 @@ app.get('/', (req, res) =>{
 });
 
 
-
-//http://localhost:3000/user?name=test222
-// app.get('/user', (req, res) =>{
-//     let url = 'https://la2.api.riotgames.com/lol/summoner/v3/summoners/by-name/orick?api_key='+apiKey;
-//     axios.get(url)
-//         .then(function (response) {
-//             //console.log(response);
-//             res.json(response.data);
-//         })
-//          .catch(function (error) {
-//            // console.log(error);
-//          });
-// })
-
-
-// app.post('/user',(req, res)=>{
-//
-//     console.log(req.body)
-//
-//     if(req.body.age >= 20){
-//         res.json({
-//             status:1,
-//             statusCode:'user/created'
-//         })
-//     }else{
-//         res.status(400).json({
-//             status:0,
-//             statusCode:'user/bad-age',
-//             errorDescription: 'The user has less than 20 years'
-//         })
-//     }
-//
-// })
 
     module.exports = router;
