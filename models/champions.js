@@ -8,65 +8,89 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         armor: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         armorPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         attackDamage: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         attackDamagePerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         attackRange: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         attackSpeedOffSet: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         attackSpeedPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         crit: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         critPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         hp: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         hpPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         hpRegen: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         hpRegenPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         moveSpeed: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         mp: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         mpPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         mpRegen: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         mpRegenPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         spellBlock: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         },
         spellBlockPerLevel: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DOUBLE,
+            allowNull: false
         }
     });
 };

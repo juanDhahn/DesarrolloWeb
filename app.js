@@ -9,6 +9,7 @@ const statsRouter = require('./routes/stats');
 const summonerRouter = require('./routes/summoner');
 const userRouter = require('./routes/user');
 const championsRouter = require('./routes/champions');
+const spellsRouter = require('./routes/spells');
 const app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use('/stats', statsRouter);
 app.use('/summoner', summonerRouter);
 app.use('/user', userRouter);
 app.use('/champions', championsRouter);
+app.use('/spells',spellsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
