@@ -18,6 +18,7 @@ const championsRouter = require('./routes/champions');
 const spellsRouter = require('./routes/spells');
 const itemsRouter = require('./routes/items');
 const simuladorRouter = require('./routes/simulador')
+const buildsRouter = require('./routes/builds')
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use('/league', leagueRouter);
 app.use('/champions', championsRouter);
 app.use('/spells',spellsRouter);
 app.use('/simulador', simuladorRouter);
+app.use('/builds', buildsRouter);
 
 
 //bloodwea
