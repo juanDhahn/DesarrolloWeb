@@ -11,21 +11,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 router.post('/', (req, res, next) => {
     firebaseAdmin.auth().verifyIdToken(req.body.token)
         .then(decodedToken => {
-                const iduser = decodedToken.uid
-                const idchamp1 = req.body['champ1'];
-                const idchamp2 = req.body['champ2'];
-                const iditem11 = req.body['item11'];
-                const iditem12 = req.body['item12'];
-                const iditem13 = req.body['item13'];
-                const iditem14 = req.body['item14'];
-                const iditem15 = req.body['item15'];
-                const iditem16 = req.body['item16'];
-                const iditem21 = req.body['item21'];
-                const iditem22 = req.body['item22'];
-                const iditem23 = req.body['item23'];
-                const iditem24 = req.body['item24'];
-                const iditem25 = req.body['item25'];
-                const iditem26 = req.body['item26'];
+                var iduser = decodedToken.uid;
+                var idchamp1 = req.body['idchamp1'];
+                var idchamp2 = req.body['idchamp2'];
+                var iditem11 = req.body['iditem11'];
+                var iditem12 = req.body['iditem12'];
+                var iditem13 = req.body['iditem13'];
+                var iditem14 = req.body['iditem14'];
+                var iditem15 = req.body['iditem15'];
+                var iditem16 = req.body['iditem16'];
+                var iditem21 = req.body['iditem21'];
+                var iditem22 = req.body['iditem22'];
+                var iditem23 = req.body['iditem23'];
+                var iditem24 = req.body['iditem24'];
+                var iditem25 = req.body['iditem25'];
+                var iditem26 = req.body['iditem26'];
 
                 if (idchamp1 && idchamp2) {
                     models.builds.create({
