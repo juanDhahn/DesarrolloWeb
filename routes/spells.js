@@ -7,7 +7,7 @@ const router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var apiKey = 'RGAPI-35761256-01ce-4466-89df-ed0737d60c9b';
+var apiKey = 'RGAPI-e296201c-2be3-4202-a81f-84665d2c9486';
 
 router.get('/', async (req, res, next) =>{
 
@@ -20,25 +20,30 @@ router.get('/', async (req, res, next) =>{
             let lista = response.data.keys
             let a = response.data;
             var datos = []
-            p = -1 ; //0 1 2 y 3 habilidades. -1 pasiva
+            //p = 3 ; //0 1 2 y 3 habilidades. -1 pasiva
             for(var i in lista){
-                var id = a.data[lista[i]].id;
-                /*var name = a.data[lista[i]].spells[p].name; //para las activas
-                var description = a.data[lista[i]].spells[p].description;*/
-                /*var name = a.data[lista[i]].passive.name; pasiva
-                var description = a.data[lista[i]].passive.description;*/
+                for(var p = 0; p<5; p++){
+                var idchamp = a.data[lista[i]].id;
+                if (p<4){
+                var name = a.data[lista[i]].spells[p].name; //para las activas
+                var description = a.data[lista[i]].spells[p].description;
                 var habilidadn = p + 1
-                console.log (id);
+                } else {
+                var name = a.data[lista[i]].passive.name; //para las pasivas
+                var description = a.data[lista[i]].passive.description;
+                var habilidadn = -1
+                }
+                console.log (idchamp);
                 console.log (name);
                 console.log (description);
-                datos.push(id)
+                datos.push(idchamp)
                 datos.push(name)
                 datos.push(description)
                 datos.push(habilidadn)
-                if (id && name) {
+                if (idchamp && name) {
                     console.log("entre al if")
                     models.spells.create({
-                        id: id,
+                        idchamp: idchamp,
                         name: name,
                         description: description,
                         habilidadn: habilidadn
@@ -66,7 +71,7 @@ router.get('/', async (req, res, next) =>{
                         description: 'The body is wrong! :('
                     });
                 } 
-                
+            } 
             }
             //res.json(datos);
         }).catch(function (error) {

@@ -3,15 +3,13 @@ const models = require('../models');
 
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('spells', {
-        id: {
+        idchamp: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            primaryKey: true
         },
         description: {
             type: DataTypes.STRING,
