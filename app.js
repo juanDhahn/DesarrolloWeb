@@ -3,14 +3,25 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
 
+const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const statsRouter = require('./routes/stats');
 const summonerRouter = require('./routes/summoner');
 const userRouter = require('./routes/user');
+const matchListRouter = require('./routes/matchList');
+const associatedRouter = require('./routes/associatedAccounts');
+const leagueRouter = require('./routes/league');
+
+const championsRouter = require('./routes/champions');
+const spellsRouter = require('./routes/spells');
+const itemsRouter = require('./routes/items');
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -25,6 +36,18 @@ app.use('/', indexRouter);
 app.use('/stats', statsRouter);
 app.use('/summoner', summonerRouter);
 app.use('/user', userRouter);
+app.use('/matchList', matchListRouter);
+app.use('/assocciatedAccounts', associatedRouter);
+app.use('/league', leagueRouter);
+
+
+//negro pete
+app.use('/champions', championsRouter);
+app.use('/spells',spellsRouter);
+
+
+//bloodwea
+app.use('/items', itemsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

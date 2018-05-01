@@ -3,12 +3,7 @@ const models = require('../models');
 
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('user', {
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            isEmail: true,
-        },
-        password: {
+        uid: {
             type: DataTypes.STRING,
             allowNull: false
         }

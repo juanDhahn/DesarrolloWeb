@@ -23,7 +23,7 @@ normalizePort = (val) => {
     return false;
 };
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '8080');
 
 /**
  * Event listener for HTTP server "error" event.
@@ -64,16 +64,31 @@ onListening = () => {
         : 'port ' + addr.port;
     debug('Listening on ' + bind);
 };
+// app.use(function (req, res, next) {
+//   // Website you wish to allow to connect
+//   res.setHeader('Access-Control-Allow-Origin', 'https://localhost:4000');
+//
+//   // Request methods you wish to allow
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//
+//   // Request headers you wish to allow
+//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//
+//   // Set to true if you need the website to include cookies in the requests sent
+//   // to the API (e.g. in case you use sessions)
+//   res.setHeader('Access-Control-Allow-Credentials', true);
+//
+//   // Pass to next layer of middleware
+//   next();
+// });
 
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);
-console.log("Using Port 3000");
+console.log("Using Port 8080");
 server.on('error', onError);
 server.on('listening', onListening);
 
 models.sequelize.sync({
     force: true
-}).then(() => {
-
 });
