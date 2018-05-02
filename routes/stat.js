@@ -15,60 +15,60 @@ router.get('/insertStatistics', (req, res) => { // ID, role y Winrates de todos 
 
     axios.get(url)
         .then(function (response) {
-            let stats = response.data;
-            let keys = Object.keys(stats);
+            let statistics = response.data;
+            let keys = Object.keys(statistics);
 
-            for(let i=0;i<stats.length;i++){
-                let key = stats[i];
+            for(let i=0;i<statistics.length;i++){
+                let key = statistics[i];
                 // Estadisticas Basicos del Campeon
 
-                let id = stats[key].championId; // ID de Campeon
-                let role = stats[key].role; // Rol Correspondiente
-                let winRate = stats[key].winRate; // Su razon de victorias con el Rol que esta jugando
+                let id = statistics[key].championId; // ID de Campeon
+                let role = statistics[key].role; // Rol Correspondiente
+                let winRate = statistics[key].winRate; // Su razon de victorias con el Rol que esta jugando
 
-                let kills = stats[key].kills; // Promedio de Kills
-                let deaths = stats[key].deaths; // Promedio de Muertes
-                let assists = stats[key].assists; // Promedio de Asistencias
+                let kills = statistics[key].kills; // Promedio de Kills
+                let deaths = statistics[key].deaths; // Promedio de Muertes
+                let assists = statistics[key].assists; // Promedio de Asistencias
 
-                let gamesPlayed = stats[key].gamesPlayed; // Partidos Jugados
-                let percentRolePlayed = stats[key].percentRolePlayed; // El Porcentaje de veces que el Campeon juega como este Rol
-                let banRate = stats[key].banRate; // Razon de Bans
-                let goldEarned = stats[key].goldEarned; // Promedio del Oro que gana en un partido
+                let gamesPlayed = statistics[key].gamesPlayed; // Partidos Jugados
+                let percentRolePlayed = statistics[key].percentRolePlayed; // El Porcentaje de veces que el Campeon juega como este Rol
+                let banRate = statistics[key].banRate; // Razon de Bans
+                let goldEarned = statistics[key].goldEarned; // Promedio del Oro que gana en un partido
                 // Todas las Estadisticas mas Complejas
                 // Items Iniciales - Mas Popular
 
-                let firstItemCount = stats[key].hashes.firstitemshash.highestCount.count // cantidad de veces repetido
-                let firstItemWins = stats[key].hashes.firstitemshash.highestCount.wins // numero de victorias
-                let firstItemWinRate = stats[key].hashes.firstitemshash.highestCount.winRate // razon de victorias
-                let firstItemHash = stats[key].hashes.firstitemshash.highestCount.hash // IDs de los objetos
+                let firstItemCount = statistics[key].hashes.firstitemshash.highestCount.count; // cantidad de veces repetido
+                let firstItemWins = statistics[key].hashes.firstitemshash.highestCount.wins; // numero de victorias
+                let firstItemWinRate = statistics[key].hashes.firstitemshash.highestCount.winRate; // razon de victorias
+                let firstItemHash = statistics[key].hashes.firstitemshash.highestCount.hash; // IDs de los objetos
                 // Items Finales - Mas Popular
 
-                let finalItemCount = stats[key].hashes.finalitemshashfixed.highestCount.count // cantidad de veces repetido
-                let finalItemWins = stats[key].hashes.finalitemshashfixed.highestCount.wins // numero de victorias
-                let finalItemWinRate = stats[key].hashes.finalitemshashfixed.highestCount.winRate // razon de victorias
-                let finalItemHash = stats[key].hashes.finalitemshashfixed.highestCount.hash // IDs de los objetos
+                let finalItemCount = statistics[key].hashes.finalitemshashfixed.highestCount.count; // cantidad de veces repetido
+                let finalItemWins = statistics[key].hashes.finalitemshashfixed.highestCount.wins; // numero de victorias
+                let finalItemWinRate = statistics[key].hashes.finalitemshashfixed.highestCount.winRate; // razon de victorias
+                let finalItemHash = statistics[key].hashes.finalitemshashfixed.highestCount.hash; // IDs de los objetos
                 // Orden de Habilidades - Mas Popular
 
-                let skillCount = stats[key].hashes.skillorderhash.highestCount.count // cantidad de veces repetido
-                let skillWins = stats[key].hashes.skillorderhash.highestCount.wins // numero de victorias
-                let skillWinRate = stats[key].hashes.skillorderhash.highestCount.winRate // razon de victorias
-                let skillHash = stats[key].hashes.skillorderhash.highestCount.hash // IDs de los objetos
+                let skillCount = statistics[key].hashes.skillorderhash.highestCount.count; // cantidad de veces repetido
+                let skillWins = statistics[key].hashes.skillorderhash.highestCount.wins; // numero de victorias
+                let skillWinRate = statistics[key].hashes.skillorderhash.highestCount.winRate; // razon de victorias
+                let skillHash = statistics[key].hashes.skillorderhash.highestCount.hash; // IDs de los objetos
                 // Habilidades de Summoner - Mas Popular
 
-                let summonerCount = stats[key].hashes.summonershash.highestCount.count // cantidad de veces repetido
-                let summonerWins = stats[key].hashes.summonershash.highestCount.wins // numero de victorias
-                let summonerWinRate = stats[key].hashes.summonershash.highestCount.winRate // razon de victorias
-                let summonerHash = stats[key].hashes.summonershash.highestCount.hash // IDs de los objetos
+                let summonerCount = statistics[key].hashes.summonershash.highestCount.count; // cantidad de veces repetido
+                let summonerWins = statistics[key].hashes.summonershash.highestCount.wins; // numero de victorias
+                let summonerWinRate = statistics[key].hashes.summonershash.highestCount.winRate; // razon de victorias
+                let summonerHash = statistics[key].hashes.summonershash.highestCount.hash; // IDs de los objetos
                 // Runas Ocupadas - Mas Popular
 
-                let runeCount = stats[key].hashes.runehash.highestCount.count // cantidad de veces repetido
-                let runeWins = stats[key].hashes.runehash.highestCount.wins // numero de victorias
-                let runeWinRate = stats[key].hashes.runehash.highestCount.winRate // razon de victorias
-                let runeHash = stats[key].hashes.runehash.highestCount.hash // IDs de los objetos
+                let runeCount = statistics[key].hashes.runehash.highestCount.count; // cantidad de veces repetido
+                let runeWins = statistics[key].hashes.runehash.highestCount.wins; // numero de victorias
+                let runeWinRate = statistics[key].hashes.runehash.highestCount.winRate; // razon de victorias
+                let runeHash = statistics[key].hashes.runehash.highestCount.hash; // IDs de los objetos
 
                 // Al registrar estos 3 stats, se guardan todos los datos obtenidos
                 if (id && winRate && role) { 
-                    models.stat.create({
+                    models.stats.create({
                         id: id,
                         role: role,
                         winRate: winRate,
@@ -107,18 +107,18 @@ router.get('/insertStatistics', (req, res) => { // ID, role y Winrates de todos 
                         runeWinRate: runeWinRate,
                         runeHash: runeHash
                     })
-                    .then(stat => {
-                        if (stat) {
+                    .then(stats => {
+                        if (stats) {
                             res.json({
                                 status: 1,
-                                statusCode: 'stat/created',
-                                data: stat.toJSON()
+                                statusCode: 'stats/created',
+                                data: stats.toJSON()
                             });
                         } else {
                             res.status(400).json({
                                 status: 0,
-                                statusCode: 'stat/error',
-                                description: "Couldn't create the stat"
+                                statusCode: 'stats/error',
+                                description: "Couldn't create the statistics"
                             });
                         }
                     })
@@ -132,7 +132,7 @@ router.get('/insertStatistics', (req, res) => { // ID, role y Winrates de todos 
                 } else {
                     res.status(400).json({
                         status: 0,
-                        statusCode: 'stat/wrong-body',
+                        statusCode: 'stats/wrong-body',
                         description: 'The body is wrong! :('
                     });
                 }
@@ -145,13 +145,13 @@ router.get('/insertStatistics', (req, res) => { // ID, role y Winrates de todos 
 });
 
 router.get('/recover/all', (req, res, next)=>{
-    models.stat
+    models.stats
     .findAll()
-    .then(stat=>{
-        if (stat){
+    .then(stats=>{
+        if (stats){
             res.json({
                 status: 1,
-                data: stat
+                data: stats
             });
         } else {
             res.status(400).json({
