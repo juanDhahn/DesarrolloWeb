@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         winRate: {
-            type: DataTypes.DOUBLE
+            type: DataTypes.DOUBLE,
             allowNull: false
         },
         kills: {
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         firstItemWinRate: {
             type: DataTypes.DOUBLE
-        }
+        },
         firstItemHash: {
             type: DataTypes.STRING
         },
@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         finalItemWinRate: {
             type: DataTypes.DOUBLE
-        }
+        },
         finalItemHash: {
             type: DataTypes.STRING
         },
@@ -69,9 +69,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         skillWinRate: {
             type: DataTypes.DOUBLE
-        }
+        },
         skillHash: {
-            type: DataTypes.STRING}
+            type: DataTypes.STRING
         },
         summonerCount: {
             type: DataTypes.INTEGER
@@ -81,7 +81,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         summonerWinRate: {
             type: DataTypes.DOUBLE
-        }
+        },
         summonerHash: {
             type: DataTypes.STRING
         },
@@ -93,7 +93,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         runeWinRate: {
             type: DataTypes.DOUBLE
-        }
+        },
         runeHash: {
             type: DataTypes.STRING
         }
