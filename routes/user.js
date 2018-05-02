@@ -1,46 +1,7 @@
 const express = require('express');
-// const app = express();
-const axios = require('axios');
 const router = express.Router();
 const models = require('../models');
 const firebaseAdmin = require('../config/firebaseConfig');
-
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.urlencoded({ extended: false }));
-
-
-router.post('/verificar',(req,res,next)=>{
-    firebaseAdmin.auth().verifyIdToken(req.body.token)
-    .then(function(decodedToken) {
-        console.log('good: ' + decodedToken);
-        // console.log(decodedToken.uid);
-
-        models.user.findOne({
-            where: {
-                uid: decodedToken.uid
-            }})
-            .then(user => {
-                res.json({
-                    status: 0,
-                    statusCode: 'users/verificar/ok',
-                    description: 'datos de usuario'
-                });
-            })
-
-            .catch(error =>{
-                console.log(error);
-            });
-
-        }).catch(function(error) {
-            console.log('Error al verificar');
-            // console.log(error);
-            res.json({
-                code:'0',
-                description:'error al verificar token de usuario'
-            });
-        });
-    });
-
 
     router.post('/create',(req,res,next)=>{
         const email = req.body['email'];
@@ -127,6 +88,40 @@ router.post('/verificar',(req,res,next)=>{
 
         });
 
+
+
+// router.post('/verificar',(req,res,next)=>{
+//     firebaseAdmin.auth().verifyIdToken(req.body.token)
+//         .then(function(decodedToken) {
+//             console.log('good: ' + decodedToken);
+//             // console.log(decodedToken.uid);
+//
+//             models.user.findOne({
+//                 where: {
+//                     uid: decodedToken.uid
+//                 }})
+//                 .then(user => {
+//                     res.json({
+//                         status: 0,
+//                         statusCode: 'users/verificar/ok',
+//                         description: 'datos de usuario'
+//                     });
+//                 })
+//
+//                 .catch(error =>{
+//                     console.log(error);
+//                 });
+//
+//         }).catch(function(error) {
+//         console.log('Error al verificar');
+//         // console.log(error);
+//         res.json({
+//             code:'0',
+//             description:'error al verificar token de usuario'
+//         });
+//     });
+// });
+//
         // router.post('/', (req, res, next) => {
         //     const name = req.body['name'];
         //     const email = req.body['email'];

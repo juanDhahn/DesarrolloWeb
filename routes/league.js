@@ -4,7 +4,7 @@ const models = require('../models');
 const axios = require('axios');
 
 
-const apiKey = 'RGAPI-b8f4527d-c46d-4a31-8260-80a062bf2b10';
+const apiKey = 'RGAPI-afd57380-a0ac-40a5-8b28-76dabb71a13f';
 
 router.get('/find/:server/:summonerId', (req, res, next) => {
     // const summonerName = req.params.summonerId;
@@ -37,7 +37,9 @@ router.get('/find/:server/:summonerId', (req, res, next) => {
                         });
                     }else{
                         //https://la2.api.riotgames.com/lol/league/v3/positions/by-summoner/113649?api_key=RGAPI-b8f4527d-c46d-4a31-8260-80a062bf2b10
+
                         let urlLeague = 'https://'+req.params.server+'.api.riotgames.com/lol/league/v3/positions/by-summoner/'+req.params.summonerId + '?api_key='+ apiKey;
+
                         console.log(urlLeague);
                         axios.get(urlLeague)
                         .then( response => {
@@ -68,8 +70,6 @@ router.get('/find/:server/:summonerId', (req, res, next) => {
                             models.league.create(dateCreate)
                                 .then(leagueCreate =>{
                                     if (leagueCreate) {
-                                        console.log(summonerX);
-                                        console.log(leagueCreate);
                                         summonerX.setSummonerLeague(leagueCreate);
                                         res.json({
                                             status: 1,
@@ -93,6 +93,7 @@ router.get('/find/:server/:summonerId', (req, res, next) => {
                                 });
                         })
                         .catch( error => {
+                            console.log(error);
                             res.json({
                                 status: 0,
                                 statusCode: 'league/find/error',

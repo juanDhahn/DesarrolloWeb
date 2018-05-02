@@ -15,13 +15,11 @@ const Op = Sequelize.Op;
 //     });
 // });
 
-const apiKey = 'RGAPI-b8f4527d-c46d-4a31-8260-80a062bf2b10';
+const apiKey = 'RGAPI-afd57380-a0ac-40a5-8b28-76dabb71a13f';
 
 router.get('/find/:server/:summonerName', (req, res, next) => {
     const summonerName = req.params.summonerName;//.charAt(0).toUpperCase() + req.params.summonerName.slice(1);
     const summonerServer = req.params.server;
-    console.log(summonerServer);
-    console.log(summonerName);
     models.summoner
     .findOne({
         where: {

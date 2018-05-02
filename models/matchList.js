@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
         gameId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
         },
         champion:{
             type: DataTypes.INTEGER,
@@ -55,6 +54,12 @@ module.exports = (sequelize, DataTypes) => {
             through: 'summonerMatchList',
             foreignKey: 'gameId'
         });
+
+        matchlist.belongsToMany(models.match, {
+            through: 'listM',
+            as: 'listMatch'
+        });
+
     };
 
     return matchlist;

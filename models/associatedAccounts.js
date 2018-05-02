@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         }
-
     });
     userSummoner.associate =  (models) => {
         userSummoner.belongsToMany(models.summoner, {

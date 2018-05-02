@@ -1,18 +1,81 @@
 'use strict';
 const models = require('../models');
-
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('user5', {
-        email: {
-            type: DataTypes.STRING,
+    const match = sequelize.define('match', {
+        gameId: {
+            type: DataTypes.INTEGER,
             allowNull: false,
-            isEmail: true,
         },
-        password: {
+        summonerId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        accountId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        profileIcon: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        participantId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        win:{
             type: DataTypes.STRING,
+            allowNull: false
+        },
+        item0:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        item1:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        item2:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        item3:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        item4:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        item5:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        item6:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        deaths:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        kills:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        assists:{
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
+
+    match.associate =  (models) => {
+        match.belongsToMany(models.matchlist, {
+            through: 'listM',
+            unique: true
+        });
+    };
+
+    return match;
 };
 
 // {

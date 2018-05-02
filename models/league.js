@@ -1,9 +1,7 @@
 'use strict';
 const models = require('../models');
-
 module.exports = (sequelize, DataTypes) => {
     const league = sequelize.define('league', {
-
         summonerId: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -13,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-
         soloWins: {
             type: DataTypes.INTEGER,
         },
